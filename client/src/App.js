@@ -1,9 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import Loctab from './component/Loctab'
 
 function App() {
   return (
-      'Hello World'
+      <div>
+        <Loctab />
+      </div>
   );
 }
 
