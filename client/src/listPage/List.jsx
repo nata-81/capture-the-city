@@ -9,19 +9,25 @@ const ListView = (props) => {
         {link: "https://archlinux.org/", title: "title2", content: "never gonna give you up never gonna let you down never gonna run around or desert you. I just wanna tell you how I'm feeling!"}
     ]
     */
-
-    
-    const [uploads, setUploads] = useState([]);
+   
+    const [uploads, setUploads] = useState([]); 
 
     useEffect(() => {
         getUploads();
     }, [])
+
     
-    
-    let getUploads = async() => {
-        let response = await fetch('http://127.0.0.1:8000/upload/' + props.latitude + '/' + props.longitude + '/');
+    let getUploads = async(position) => {
+
+        let response = await fetch('http://127.0.0.1:8000/upload/' + position.coords.latitude + '/' + position.coords.longitude + '/');
         let data = await response.json();
         setUploads(data);
+    }
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getUploads);
+    } else {
+        alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
     }
 
     return (
