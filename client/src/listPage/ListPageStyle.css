@@ -8,10 +8,11 @@
 }
 
 .list_view_wrapper {
-    background-color: rgb(255, 255, 255, 0.7);
+    background-color: rgb(255, 255, 255, 0.6);
     border-radius: 20px;
     border: 1px solid rgb(32, 32, 32);
     padding: 15px;
+    backdrop-filter: blur(10px);
 }
 
 /* TODO: drop shadow/choose color wisely */
