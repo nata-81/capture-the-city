@@ -1,6 +1,7 @@
 import './App.css';
 import ListView from './listPage/List';
 import Loctab from './listPage/Loctab'
+import Form from './listPage/Form';
 import './listPage/ListPageStyle.css'
 
 function App() {
@@ -14,8 +15,12 @@ function App() {
             <Loctab />
           </div>
 
+          <div style={{padding: '15px'}}>
+            <Form />
+          </div>
+
           <div class='list_view_wrapper'>
-            <ListView/>
+            <ListView />
           </div>
           
         </div>
