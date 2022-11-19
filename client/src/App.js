@@ -2,14 +2,17 @@ import './App.css';
 import ListView from './listPage/List';
 import Loctab from './listPage/Loctab'
 import Form from './listPage/Form';
+import Popup from './Popup';
 import './listPage/ListPageStyle.css'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
+  const [ buttonPopup, setButtonPopup ] = useState(false);
   
   return (
     <div class='list_page_wrapper'>
-      <div class='list_flexbox' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+      <Popup trigger={ buttonPopup } setTrigger={ setButtonPopup } />
+      <div class="list_flexbox" style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
         <div style={{width: '20%'}}></div>
         {/* TODO: fix backgroundColor, style w/ transparency etc. */}
         <div>
@@ -22,7 +25,7 @@ function App() {
           </div>
 
           <div class='list_view_wrapper'>
-            <ListView />
+            <ListView setTrigger={setButtonPopup}/>
           </div>
           
         </div>
