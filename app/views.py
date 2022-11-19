@@ -42,7 +42,9 @@ def getUploadByCoordinates(request, lat_s, long_s):
 @api_view(['POST'])
 def createUpload(request):
     data = request.data
-    upload = Upload(title='tmp', content='tmp')
+    upload = Upload.objects.create(
+        body=data['body']
+    )
     upload.save()
     serializer = UploadSerializer(upload, many=False)
     return Response(serializer.data)
