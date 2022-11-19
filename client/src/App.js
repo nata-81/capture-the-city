@@ -1,6 +1,6 @@
 import './App.css';
-<<<<<<< HEAD
 import ListView from './listPage/List';
+import Loctab from './component/Loctab'
 
 function App() {
   return (
@@ -12,17 +12,11 @@ function App() {
           <ListView/>
         </div>
         <div style={{width: '20%'}}></div>
-      </div>
-    </div>
-=======
-import Loctab from './component/Loctab'
-
-function App() {
-  return (
+      </div>      
       <div>
         <Loctab />
       </div>
->>>>>>> cfc00839d4e37ddf6ea0c58ad1d970b7754896e2
+    </div>
   );
 }
 
