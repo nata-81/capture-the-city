@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function Loctab() {
+    let coordDecimalPlaces = 7;
     const [location, setLocation] = useState(getLocation());
     
     function getLocation() {
@@ -9,15 +10,13 @@ function Loctab() {
     }
       
     function showPosition(position) {
-        setLocation(position.coords.latitude + ", " + position.coords.longitude);
+        setLocation(Number(position.coords.latitude).toFixed(coordDecimalPlaces) + ", " + Number(position.coords.longitude).toFixed(7));
     }
     
     return(
     <div>
-        <button onClick={() => setLocation(getLocation())}>Refresh</button>
-        <br></br>
         <div style={{display: 'flex', flexDirection: ''}}>
-            <div style={{border: '1px solid black', borderRadius: '25%', display: 'flex', justifyContent: 'center'}}>
+            <div style={{border: '1px solid black', borderRadius: '15px', display: 'flex', justifyContent: 'center'}}>
                 <p>{location}</p>
             </div>
         </div>

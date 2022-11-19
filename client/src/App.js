@@ -1,10 +1,13 @@
 import './App.css';
 import ListView from './listPage/List';
-import Loctab from './component/Loctab'
+import Loctab from './listPage/Loctab'
 
 function App() {
   return (
     <div>
+      <div>
+        <Loctab />
+      </div>
       <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
         <div style={{width: '20%'}}></div>
         {/* TODO: fix backgroundColor, style w/ transparency etc. */}
@@ -13,9 +16,6 @@ function App() {
         </div>
         <div style={{width: '20%'}}></div>
       </div>      
-      <div>
-        <Loctab />
-      </div>
     </div>
   );
 }
