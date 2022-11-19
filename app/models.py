@@ -9,6 +9,7 @@ class User(models.Model):
     # null/blank: we can't submit a form with no values
     handle = models.CharField(max_length=28)
     password = models.CharField(max_length=255)
+    email = models.CharField(null=True, blank=True, max_length=255)
 
 class Uploads(models.Model):
     title = models.CharField(max_length=64)
