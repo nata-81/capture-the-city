@@ -15,8 +15,8 @@ function Loctab() {
     
     return(
     <div>
-        <div style={{display: 'flex', flexDirection: ''}}>
-            <div style={{border: '1px solid black', borderRadius: '15px', display: 'flex', justifyContent: 'center'}}>
+        <div style={{display: 'flex', flexDirection: 'row'}}>
+            <div>
                 <p>{location}</p>
             </div>
         </div>
