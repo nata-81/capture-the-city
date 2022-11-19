@@ -1,7 +1,14 @@
 import React from "react";
 
 const Popup = props => {
-  var content;
+  var content = (
+    <div>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+        <h1>{props.title}</h1>
+      </div>
+      <p>{props.content}</p>
+    </div>
+  );
 
   return (props.trigger) ? (
     <div className="popup">

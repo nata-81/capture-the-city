@@ -4,11 +4,12 @@ Priority
 1, Anonymous/Name
 2, Create Post
 # 3, Scroll Panel
-4, Content Display
-5, Background
+# 4, Content Display
+5, Background Pictures
 6, Picture Upload
 7, update automatically
 8, tweet button
+9, describe more
 
 
 Non-Priority

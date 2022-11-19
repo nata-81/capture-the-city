@@ -19,7 +19,7 @@ const ListView = (props) => {
     
     
     let getUploads = async() => {
-        let response = await fetch('http://127.0.0.1:8000/uploads/');
+        let response = await fetch('http://127.0.0.1:8000/upload/' + props.latitude + '/' + props.longitude + '/');
         let data = await response.json();
         setUploads(data);
     }
@@ -29,7 +29,7 @@ const ListView = (props) => {
             { /* loop through uploads array */ }
             {uploads.map((upload, i) => (
                 <>
-                <h3 className="upload_title" onClick={()=> props.setTrigger(true)}>{upload.title}</h3>
+                <h3 className="upload_title" onClick={() => { props.setTrigger(true); props.setTitle(upload.title); props.setContent(upload.content); }}>{upload.title}</h3>
                 <p className="upload_content_preview">{upload.content.slice(0, maxPreviewLen) + "..."}</p>
                 {/* line divider */}
                 {i + 1 < uploads.length ? <hr></hr> : ''}                

@@ -15,8 +15,8 @@ class User(models.Model):
         return self.handle
 
 class Upload(models.Model):
-    title = models.CharField(max_length=64)
-    content = models.TextField()
+    title = models.CharField(max_length=64, null=False)
+    content = models.TextField(null=False)
     # auto_now can change
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

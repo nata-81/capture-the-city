@@ -34,9 +34,18 @@ def getUpload(request, id):
 def getUploadByCoordinates(request, lat_s, long_s):
     lat = float(lat_s)
     long = float(long_s)
-    error = 0.00001
-    upload = Upload.objects.all().filter(latitude__lte = lat + error, latitude__gte = lat - error, longitude__lte = long + error, longitude__gte = long - error)
-    serializer = UploadSerializer(upload, many=False)
+    error = 0.01
+    #upload = Upload.objects.all()
+    print("FROM/TO lte, gte -------------------")
+    print(lat + error)
+    print(lat - error)
+    print("END -------------------")
+
+    upload = Upload.objects.all().filter(latitude__lte = (lat + error), latitude__gte = (lat - error), longitude__lte = (long + error), longitude__gte = (long - error))
+    serializer = UploadSerializer(upload, many=True)
+
+    print(serializer.data)
+
     return Response(serializer.data)
 
 @api_view(['POST'])

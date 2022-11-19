@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LocationArrowImg from './location-arrow-icon.png'
 
-function Loctab() {
+function Loctab(props) {
     let coordDecimalPlaces = 7;
     const [location, setLocation] = useState(getLocation());
     
@@ -12,6 +12,8 @@ function Loctab() {
       
     function showPosition(position) {
         setLocation(Number(position.coords.latitude).toFixed(coordDecimalPlaces) + ", " + Number(position.coords.longitude).toFixed(coordDecimalPlaces));
+        props.setLatitude(Number(position.coords.latitude).toFixed(coordDecimalPlaces));
+        props.setLongitude(Number(position.coords.longitude).toFixed(coordDecimalPlaces));
     }
     
     return(

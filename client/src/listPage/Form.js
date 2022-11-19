@@ -34,9 +34,12 @@ const Form = () => {
         <div style={{ display: 'flex', flexDirection: 'column' }}>
             <input type="text" placeholder="What's Happening?" style={{ backgroundColor: 'transparent', borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '30px' }}></input>
             <div style={{ height: '20px' }}></div>
-            <input type="text" placeholder="Describe more ..." style={{ backgroundColor: 'transparent', borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '20px' }}></input>
+            <input type="textarea" placeholder="Describe more ..." style={{ backgroundColor: 'transparent', borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '20px' }}></input>
             <div style={{ height: '20px' }}></div>
-            <button class='submit_button'>Submit</button>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+              <button class='submit_button'>Submit</button>
+              <input type="text" placeholder="Send as Anonymous" style={{ backgroundColor: 'transparent', borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '14px' }}></input>
+            </div>
             <div style={{ height: '20px' }}></div>
         </div>
     );
