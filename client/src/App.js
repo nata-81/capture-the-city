@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+<<<<<<< HEAD
 import ListView from './listPage/List';
 
 function App() {
@@ -14,6 +14,15 @@ function App() {
         <div style={{width: '20%'}}></div>
       </div>
     </div>
+=======
+import Loctab from './component/Loctab'
+
+function App() {
+  return (
+      <div>
+        <Loctab />
+      </div>
+>>>>>>> cfc00839d4e37ddf6ea0c58ad1d970b7754896e2
   );
 }
 
