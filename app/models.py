@@ -11,12 +11,21 @@ class User(models.Model):
     password = models.CharField(max_length=255)
     email = models.CharField(null=True, blank=True, max_length=255)
 
-class Uploads(models.Model):
+    def __str__(self) -> str:
+        return self.handle
+
+class Upload(models.Model):
     title = models.CharField(max_length=64)
     content = models.TextField()
     # auto_now can change
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-class Links(models.Model):
+    def __str__(self) -> str:
+        return self.title
+
+class Link(models.Model):
     url = models.TextField()
+
+    def __str__(self) -> str:
+        return self.url
