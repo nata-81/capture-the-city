@@ -9,7 +9,7 @@ function App() {
   
   return (
     <div class='list_page_wrapper'>
-      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+      <div class='list_flexbox' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
         <div style={{width: '20%'}}></div>
         {/* TODO: fix backgroundColor, style w/ transparency etc. */}
         <div>

@@ -2,10 +2,10 @@
     height: 100vh;
     background-color: black;
     background-image: url('test-background.png');
+    background-attachment: fixed;
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
-    overflow: hidden;
 }
 
 /* TODO: fix height relative to window (ca. 90% or so) */
@@ -15,7 +15,14 @@
     border: 1px solid rgb(32, 32, 32);
     padding: 15px;
     backdrop-filter: blur(10px);
-    overflow: auto;
+    margin-bottom: 30px;
+}
+
+.list_flexbox {
+    background-image: url('test-background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* TODO: drop shadow/choose color wisely */
