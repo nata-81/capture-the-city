@@ -27,6 +27,7 @@ class Upload(models.Model):
         return self.title
 
 class Link(models.Model):
+    postId = models.IntegerField(null=False)
     url = models.TextField()
 
     def __str__(self) -> str:

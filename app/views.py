@@ -34,7 +34,7 @@ def getUpload(request, id):
 def getUploadByCoordinates(request, lat_s, long_s):
     lat = float(lat_s)
     long = float(long_s)
-    error = 0.01
+    error = 0.0001
     #upload = Upload.objects.all()
     print("FROM/TO lte, gte -------------------")
     print(lat + error)
