@@ -11,7 +11,7 @@ function Loctab() {
     }
       
     function showPosition(position) {
-        setLocation(Number(position.coords.latitude).toFixed(coordDecimalPlaces) + ", " + Number(position.coords.longitude).toFixed(7));
+        setLocation(Number(position.coords.latitude).toFixed(coordDecimalPlaces) + ", " + Number(position.coords.longitude).toFixed(coordDecimalPlaces));
     }
     
     return(
