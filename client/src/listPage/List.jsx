@@ -9,17 +9,12 @@ export const ListView = () => {
     return (
         <div className="list_cards">
             { /* loop through uploads array */ }
-            {uploads.map((upload, i, length) => (
+            {uploads.map((upload, i) => (
                 <>
                 <h3 className="upload_title" onClick={()=> window.open(upload.link)}>{upload.title}</h3>
                 <p className="upload_content_preview">{upload.content.slice(0, maxPreviewLen) + "..."}</p>
                 {/* line divider */}
-                {(() => {
-                    if (i + 1 < length) {
-                        // TODO: omit line break at end
-                    }
-                })()}
-                <hr></hr>
+                {i + 1 < uploads.length ? <hr></hr> : ''}                
                 </>
             ))}
         </div>
