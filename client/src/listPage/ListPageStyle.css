@@ -1,0 +1,20 @@
+.list_page_wrapper {
+    height: '100vh';
+    background-color: black;
+    background-image: url('test-background.png');
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.list_view_wrapper {
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 20px;
+    border: 1px solid rgb(32, 32, 32);
+    padding: 15px;
+}
+
+/* TODO: drop shadow/choose color wisely */
+.location_coords {
+    color: white;
+}

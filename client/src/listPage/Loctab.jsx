@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LocationArrowImg from './location-arrow-icon.png'
 
 function Loctab() {
     let coordDecimalPlaces = 7;
@@ -15,10 +16,9 @@ function Loctab() {
     
     return(
     <div>
-        <div style={{display: 'flex', flexDirection: 'row'}}>
-            <div>
-                <p>{location}</p>
-            </div>
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                <img src={LocationArrowImg} width='30px' height='30px' style={{marginTop: '16px', marginRight: '5px'}}></img>
+                <h3 class='location_coords' style={{textAlign: 'center'}}>{location}</h3>
         </div>
         
     </div>);
