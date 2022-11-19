@@ -30,24 +30,21 @@ def getUpload(request, id):
     serializer = UploadSerializer(upload, many=False)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def getUploadByCoordinates(request, lat_s, long_s):
+    lat = float(lat_s)
+    long = float(long_s)
+    error = 0.00001
+    upload = Upload.objects.all().filter(latitude__lte = lat + error, latitude__gte = lat - error, longitude__lte = long + error, longitude__gte = long - error)
+    serializer = UploadSerializer(upload, many=False)
+    return Response(serializer.data)
+
 @api_view(['POST'])
 def createUpload(request):
     data = request.data
-    note = Upload.objects.create(
-        body=data['body']
-    )
-    serializer = UploadSerializer(note, many=False)
-    return Response(serializer.data)
-
-@api_view(['PUT'])
-def updateUpload(request, id):
-    data = request.data
-    upload = Upload.objects.get(id=id)
-    serializer = UploadSerializer(instance=upload, data=data)
-
-    if serializer.is_valid():
-        serializer.save()
-
+    upload = Upload(title='tmp', content='tmp')
+    upload.save()
+    serializer = UploadSerializer(upload, many=False)
     return Response(serializer.data)
 
 @api_view(['DELETE'])

@@ -6,8 +6,8 @@ urlpatterns = [
     # Uploads
     path('uploads/', views.getUploads, name='uploads'),
     path('upload/<str:id>/', views.getUpload, name='upload'),
+    path('upload/<str:latitude>/<str:longitude>', views.getUpload, name='upload'),
     path('upload/create/', views.createUpload, name="upload-create"),
-    path('upload/<str:id>/update/', views.updateUpload, name="upload-update"),
     path('upload/<str:id>/delete/', views.deleteUpload, name="upload-delete"),
     # Users
     path('users/', views.getUsers, name='users'),
