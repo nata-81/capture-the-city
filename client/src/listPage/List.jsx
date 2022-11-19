@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const ListView = () => {
+const ListView = (props) => {
     let maxPreviewLen = 64;
 
     /*
@@ -10,6 +10,7 @@ const ListView = () => {
     ]
     */
 
+    
     const [uploads, setUploads] = useState([]);
 
     useEffect(() => {
@@ -24,11 +25,11 @@ const ListView = () => {
     }
 
     return (
-        <div className="list_cards" style={{ overflowY: 'scroll' }}>
+        <div className="list_cards" style={{ overflow: 'auto' }}>
             { /* loop through uploads array */ }
             {uploads.map((upload, i) => (
                 <>
-                <h3 className="upload_title" onClick={()=> window.open(upload.link)}>{upload.title}</h3>
+                <h3 className="upload_title" onClick={()=> props.setTrigger(true)}>{upload.title}</h3>
                 <p className="upload_content_preview">{upload.content.slice(0, maxPreviewLen) + "..."}</p>
                 {/* line divider */}
                 {i + 1 < uploads.length ? <hr></hr> : ''}                

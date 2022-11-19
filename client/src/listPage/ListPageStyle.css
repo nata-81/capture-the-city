@@ -5,7 +5,7 @@
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 /* TODO: fix height relative to window (ca. 90% or so) */

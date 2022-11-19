@@ -3,11 +3,12 @@ Kanban Board
 Priority
 1, Anonymous/Name
 2, Create Post
-3, Scroll Panel
+# 3, Scroll Panel
 4, Content Display
 5, Background
 6, Picture Upload
 7, update automatically
+8, tweet button
 
 
 Non-Priority
