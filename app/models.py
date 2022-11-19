@@ -20,8 +20,8 @@ class Upload(models.Model):
     # auto_now can change
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    latitude = models.FloatField(default=48.1374932)
-    longitude = models.FloatField(default=11.5754485)
+    latitude = models.FloatField(default=48.2625728)
+    longitude = models.FloatField(default=11.6677239)
 
     def __str__(self) -> str:
         return self.title
