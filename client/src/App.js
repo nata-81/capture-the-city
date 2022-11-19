@@ -17,7 +17,7 @@ function App() {
           </div>
 
           <div style={{borderRadius: '20px', border: '2px solid Black', backgroundColor: '#B0B0FF', padding: '15px'}}>
-            <ListView/>
+            <ListView />
           </div>
           
         </div>
