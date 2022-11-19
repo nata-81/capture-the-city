@@ -3,8 +3,10 @@ import ListView from './listPage/List';
 import Loctab from './listPage/Loctab'
 import Form from './listPage/Form';
 import './listPage/ListPageStyle.css'
+import { useState, useEffect } from 'react';
 
 function App() {
+  
   return (
     <div class='list_page_wrapper'>
       <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
@@ -15,7 +17,7 @@ function App() {
             <Loctab />
           </div>
 
-          <div style={{padding: '15px'}}>
+          <div style={{padding: '15px', position: 'sticky', top: '0'}}>
             <Form />
           </div>
 

@@ -24,7 +24,7 @@ const ListView = () => {
     }
 
     return (
-        <div className="list_cards">
+        <div className="list_cards" style={{ overflowY: 'scroll' }}>
             { /* loop through uploads array */ }
             {uploads.map((upload, i) => (
                 <>
