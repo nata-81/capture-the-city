@@ -17,6 +17,7 @@ def getRoutes(request):
     ]
     return Response(routes)
 
+# Uploads
 @api_view(['GET'])
 def getUploads(request):
     uploads = Upload.objects.all()
@@ -28,3 +29,109 @@ def getUpload(request, id):
     upload = Upload.objects.get(id=id)
     serializer = UploadSerializer(upload, many=False)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def createUpload(request):
+    data = request.data
+    note = Upload.objects.create(
+        body=data['body']
+    )
+    serializer = UploadSerializer(note, many=False)
+    return Response(serializer.data)
+
+@api_view(['PUT'])
+def updateUpload(request, id):
+    data = request.data
+    upload = Upload.objects.get(id=id)
+    serializer = UploadSerializer(instance=upload, data=data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteUpload(request, id):
+    upload = Upload.objects.get(id=id)
+    upload.delete()
+    return Response('Upload was deleted!')
+
+# Users
+@api_view(['GET'])
+def getUsers(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getUser(request, id):
+    user = User.objects.get(id=id)
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def createUser(request):
+    data = request.data
+    # Hash
+    user = User.objects.create(
+        body=data['body']
+    )
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
+
+@api_view(['PUT'])
+def updateUser(request, id):
+    data = request.data
+    user = User.objects.get(id=id)
+    serializer = UserSerializer(instance=user, data=data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteUser(request, id):
+    user = User.objects.get(id=id)
+    user.delete()
+    return Response('User was deleted!')
+
+# Links
+@api_view(['GET'])
+def getLinks(request):
+    users = Link.objects.all()
+    serializer = LinkSerializer(users, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getLink(request, id):
+    link = Link.objects.get(id=id)
+    serializer = LinkSerializer(link, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def createLink(request):
+    data = request.data
+    # Hash
+    link = Link.objects.create(
+        body=data['body']
+    )
+    serializer = LinkSerializer(link, many=False)
+    return Response(serializer.data)
+
+@api_view(['PUT'])
+def updateLink(request, id):
+    data = request.data
+    link = Link.objects.get(id=id)
+    serializer = LinkSerializer(instance=link, data=data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteLink(request, id):
+    link = Link.objects.get(id=id)
+    link.delete()
+    return Response('Link was deleted!')
