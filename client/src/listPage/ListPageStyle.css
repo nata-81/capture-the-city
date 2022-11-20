@@ -50,6 +50,20 @@
 }
 
 .input_field {
+    padding: 10px;
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition-duration: 0.2s;
+}
+
+.input_field:hover {
     background-color: rgb(255, 255, 255, 0.6);
     border-radius: 10px;
+    backdrop-filter: blur(20px);
+}
+
+.popup-inner {
+    backdrop-filter: blur(20px);
+    background-color: rgb(255, 255, 255, 0.65)
 }
