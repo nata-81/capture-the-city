@@ -7,6 +7,7 @@ urlpatterns = [
     path('uploads/', views.getUploads, name='uploads'),
     path('upload/<str:id>/', views.getUpload, name='upload'),
     path('upload/<str:lat_s>/<str:long_s>/', views.getUploadByCoordinates, name='upload'),
+    # TODO: add upload getDirectionToNearestUpload
     path('upload/create/', views.createUpload, name="upload-create"),
     path('upload/<str:id>/delete/', views.deleteUpload, name="upload-delete"),
     # Users

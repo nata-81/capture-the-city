@@ -11,12 +11,21 @@ const ListView = (props) => {
     */
    
     const [uploads, setUploads] = useState([]); 
+    const [direction, setDirection] = useState('Finding direction of the nearest upload...')
 
     useEffect(() => {
         getUploads();
+        getDirection();
     }, [])
 
-    
+    let getDirection = async(position) => {
+        // TODO: use getDirectionToNearestUpload
+        let response = await fetch('http://127.0.0.1:8000/upload/' + position.coords.latitude + '/' + position.coords.longitude + '/');
+        let data = await response.json();
+        // setDirection(data);
+        setDirection('Finding direction of the nearest upload...');
+    } 
+
     let getUploads = async(position) => {
 
         let response = await fetch('http://127.0.0.1:8000/upload/' + position.coords.latitude + '/' + position.coords.longitude + '/');
@@ -26,19 +35,21 @@ const ListView = (props) => {
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getUploads);
+        console.log(uploads)
     } else {
         alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
     }
 
     return (
         <div className="list_cards" style={{ overflow: 'auto' }}>
+            { uploads.length == 0 ? <h3>{direction}</h3> : '' }
             { /* loop through uploads array */ }
             {uploads.map((upload, i) => (
                 <>
                 <h3 className="upload_title" onClick={() => { props.setTrigger(true); props.setTitle(upload.title); props.setContent(upload.content); }}>{upload.title}</h3>
                 <p className="upload_content_preview">{upload.content.slice(0, maxPreviewLen) + "..."}</p>
                 {/* line divider */}
-                {i + 1 < uploads.length ? <hr></hr> : ''}                
+                { i + 1 < uploads.length ? <hr></hr> : '' }                
                 </>
             ))}
         </div>

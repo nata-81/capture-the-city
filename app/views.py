@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Upload, Link, User
 from .serializer import UploadSerializer, LinkSerializer, UserSerializer
+import math
+import numpy as np
 
 # Create your views here.
 @api_view(['GET'])
@@ -34,7 +36,7 @@ def getUpload(request, id):
 def getUploadByCoordinates(request, lat_s, long_s):
     lat = float(lat_s)
     long = float(long_s)
-    error = 0.0001
+    error = 0.005
     #upload = Upload.objects.all()
     print("FROM/TO lte, gte -------------------")
     print(lat + error)
@@ -47,6 +49,28 @@ def getUploadByCoordinates(request, lat_s, long_s):
     print(serializer.data)
 
     return Response(serializer.data)
+
+@api_view(['GET'])
+def getDirectionToNearestUpload(request, lat_s, long_s):
+    lat = float(lat_s)
+    long = float(long_s)
+
+    # TODO: filter nearest
+    upload = Upload.objects.all().filter()[0]
+    serializer = UploadSerializer(upload, many=True)
+
+    # TODO: acces uploat long and lat correctly
+    deltaX = upload.longitude - long
+    deltaY = upload.latitude - lat
+
+    angle = math.degrees(np.arctan2(deltaX, deltaY))
+
+    numDirs = 8
+    directions = ["east", "north east", "north", "north west", "west", "south west", "south", "south east"]
+
+    direction = directions[round(angle/360 * numDirs) % 8]
+
+    return Response("Head " + direction + "!")
 
 @api_view(['POST'])
 def createUpload(request):
