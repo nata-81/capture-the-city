@@ -45,14 +45,14 @@ const Form = (props) => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
 
-        <input type="text" onChange={evt => updateTitle(evt)} placeholder="What's Happening?" style={{ backgroundColor: 'transparent', borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '30px' }}></input>
+        <input class="input_field" type="text" onChange={evt => updateTitle(evt)} placeholder="What's Happening?" style={{ borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '30px' }}></input>
         <div style={{ height: '20px' }}></div>
         
-        <input type="textarea" onChange={evt => updateCont(evt)} placeholder="Describe more ..." style={{ backgroundColor: 'transparent', borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '20px' }}></input>
+        <textarea class="input_field" onChange={evt => updateCont(evt)} placeholder="Describe more ..." style={{ borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '20px' }}></textarea>
         <div style={{ height: '20px' }}></div>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
           <button class='submit_button' onClick={() => postUploads}>Submit</button>
-          <input type="text" placeholder="Send as Anonymous" style={{ backgroundColor: 'transparent', borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '14px' }}></input>
+          <input class = "input_field" type="text" placeholder="Send as Anonymous" style={{ borderTop: 'None', borderRight: 'None', borderLeft: 'None', fontSize: '14px' }}></input>
         </div>
         <div style={{ height: '20px' }}></div>
       </div>

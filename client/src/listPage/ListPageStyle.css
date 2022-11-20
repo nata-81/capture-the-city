@@ -28,6 +28,7 @@
 /* TODO: drop shadow/choose color wisely */
 .location_coords {
     color: white;
+    text-shadow: 2px 2px 6px #444444;
 }
 
 .submit_button {
@@ -46,4 +47,9 @@
     color: black;
     background-color: rgb(255, 255, 255, 0.6);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.34), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.input_field {
+    background-color: rgb(255, 255, 255, 0.6);
+    border-radius: 10px;
 }
